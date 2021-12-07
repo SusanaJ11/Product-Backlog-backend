@@ -1,0 +1,220 @@
+---
+swagger: "2.0"
+info:
+  description: Esta API se encarga de llevar el control de visitantes que se tiene en el fraccionamiento 
+  version: 1.0.1
+  title: Crud con NodeJs
+  contact:
+    name: Elena Perez
+    email: al221810773@gmail.com
+tags:
+- name: visitante
+  description: Consulta los registros de la DB.
+paths:
+  /:
+    get:
+      tags:
+      - Consulta visitante
+      summary: Consultas
+      description: Consulta los registro de la DB.
+      operationId: consulta
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: query
+        description: Clave del visitante
+        required: true
+        type: integer
+      - name: nombre
+        in: query
+        description: Nombre del visitante
+        required: false
+        type: string
+      - name: apellido1
+        in: query
+        description: Apellido paterno del visitante
+        required: false
+        type: string
+      - name: apellido2
+        in: query
+        description: Apellido materno del visitante 
+        required: false
+        type: string
+      - name: id_itv
+        in: query
+        description: Id de la identificacion del visitante
+        required: false
+        type: integer
+      - name: identifi_number
+        in: query
+        description: Numero de identificacion 
+        required: false
+        type: integer
+      - name: placas_auto
+        in: query
+        description: Placas del auto del visitante
+        required: false
+        type: string
+      - name: FechaEntrada
+        in: query
+        description: Fecha en la que el visitante ingresa al faccionamiento
+        required: false
+        type: date
+      - name: FechaSalida
+        in: query
+        description: Fecha de salida del visitante 
+        required: false
+        type: date
+      - name: HoraEntrada
+        in: query
+        description: Entrada del visitante 
+        required: false
+        type: string 
+      - name: HoraSalida
+        in: query
+        description: Salida del visitante 
+        required: false
+        type: string
+      responses:
+        "200":
+          description: search results matching criteria
+    post:
+      tags:
+      - Creacion visitante
+      summary: Altas
+      description: Craecion de un nuevo elemento a la DB.
+      parameters:
+      - in: body
+        name: Alta de visitante
+        description: Registro de un nuevo visitante.
+        required: false
+        schema:
+          $ref: '#/definitions/datos'
+      responses:
+        "201":
+          description: visitante registrado con exito
+    put:
+      tags:
+      - Actualiza visitante
+      summary: Actualiza
+      description: Actualiza los datos de un visitante
+      parameters:
+      - in: body
+        name: Modifica visitante
+        description: Actualiza los datos del visitante
+        required: false
+        schema:
+          $ref: '#/definitions/datos'
+      responses:
+        "200":
+          description: Visitante modificado con exito 
+        
+    delete:
+      tags:
+      - Elimina visitante
+      summary: Elimina {id}
+      description: Elimina visitante or id
+      parameters:
+      - in: body
+        name: Elimina visitante
+        description: Elimina el registro por id
+        required: false
+        schema:
+          $ref: '#/definitions/datos'
+      responses:
+        "200":
+          description: Visitante eliminado con exito
+definitions:
+  datos:
+    type: object
+    required:
+    - Nombre
+    - apellido1
+    - apellido2
+    - id_itv
+    - identifi_number
+    - placa_auto
+    - id_usuario
+    - FechaEntrada
+    - FechaSalida
+    - HoraEntrada
+    - HoraSalida
+    - id_ev
+    properties:
+      id:
+        type: integer
+        example: 1
+      nombre:
+        type: string
+        example: Elena
+      apellido1:
+        type: string
+        example: Perez
+      apellido2:
+        type: string
+        example: Juarez
+      id:itv:
+        type: integer
+        example: 1
+      identifi_number:
+        type: integer
+        example: 183657717
+      placas_auto:
+        type: string
+        example: 354NYH
+      id_usuario:
+        type: integer
+        example: 1
+      FechaEntrada:
+        type: string
+        example: 2000/11/12
+      FechaSalida:
+        type: string
+        example: 2000/11/12
+      HoraEntrada:
+        type: string
+        example: 12:35
+      HoraSalida:
+        type: string
+        example: 13:45
+      Modificacion:
+        $ref: '#/definitions/Modificacion'
+  Modificacion:
+    properties:
+      id:
+        type: integer
+        example: 1
+      nombre:
+        type: string
+        example: Elena Alejandra
+      apellido1:
+        type: string
+        example: Perez
+      apellido2:
+        type: string
+        example: Juarez
+      id:itv:
+        type: integer
+        example: 1
+      identifi_number:
+        type: integer
+        example: 183657717
+      placas_auto:
+        type: string
+        example: 354NYH
+      id_usuario:
+        type: integer
+        example: 1
+      FechaEntrada:
+        type: string
+        example: 2000/11/12
+      FechaSalida:
+        type: string
+        example: 2000/11/12
+      HoraEntrada:
+        type: string
+        example: 12:35
+      HoraSalida:
+        type: string
+        example: 13:45
