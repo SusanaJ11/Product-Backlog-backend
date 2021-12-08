@@ -9,11 +9,10 @@ const app = express()
 // Puerto donde nos vamos a conectar
 app.set('port', process.env.PORT || 3000)
 dbOption = {
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '',
-  database: 'fraccionariacontrol'
+  host: 'database-1.cd0ithle1pfb.us-east-1.rds.amazonaws.com',
+  user: 'admin',
+  password: 'xvP5&$cr0R3o',
+  database: 'slev_fraccio'
 
 }
 //middlewares//
