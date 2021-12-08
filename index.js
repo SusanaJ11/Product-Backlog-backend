@@ -1,7 +1,8 @@
 const express = require('express')
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
-const routes = require("./rutas")
+const Visitante = require("./rutas")
+const singIn=require("./login.js")
 //Instanciamos el express
 const app = express()
 
@@ -19,11 +20,12 @@ dbOption = {
 app.use(myconn(mysql, dbOption, 'single'))
 app.use(express.json())
 
-//Routes//
+//Visitante//
 app.get('/', (req,res)=>{
     res.send("My api-Rest con node.js")
 })
-app.use('/api', routes)
+app.use('/api/v1/visitante', Visitante)
+app.use('/api/v1/Iniciar-Sesion', singIn)
 
 //Server running//
 app.listen(app.get('port'), ()=>{

@@ -9,7 +9,7 @@ routes.get('/', (req, res)=>{
         conn.query('SELECT * FROM visitante', (err,rows)=>{
             if(err) res.send(err)
             res.json(rows)
-        })
+        }) 
     })
 })
 
