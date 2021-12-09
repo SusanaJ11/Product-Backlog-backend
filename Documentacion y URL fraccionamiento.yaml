@@ -1,0 +1,85 @@
+swagger: "2.0"
+info:
+  description: Esta API se encarga de llevar el control del fraccionamiento 
+  version: 1.0.1
+  title: Crud con NodeJs
+tags:
+- name: visitante
+paths: https://appifraccionamiento.herokuapp.com/
+  /:
+    get:
+      tags:
+      url: /api/v1/visitante
+      description: Consulta los registro de la DB.
+      operationId: consulta
+      responses:
+        "200":
+          description: search results matching criteria.     
+    post:
+      tags:
+      url: /api/v1/visitante
+      description: Registro de un nuevo visitante.
+      operationId: Alta
+      responses:
+        "201":
+          description: visitante registrado con exito.
+    put:
+      tags:
+      url: /api/v1/visitante/{id}
+      description: Actualiza los datos de un visitante
+      operationId: Modifica
+      responses:
+        "200":
+          description: visitante modificado con exito.
+    delete:
+      tags:
+      url: /api/v1/visitante/{id}
+      description: Elimina el registro por id
+      operationId: Eliminar
+      responses:
+        "200":
+          description: visitante eliminado con exito.
+tags:
+- name: Usuario
+paths: https://appifraccionamiento.herokuapp.com/
+  /:
+    get:
+      tags:
+      url: /api/v1/usuario
+      description: Consulta los usuarios de la DB.
+      operationId: consulta
+      responses:
+        "200":
+          description: search results matching criteria.     
+    post:
+      tags:
+      url: /api/v1/usuario
+      description: Registro de un nuevo usuario.
+      operationId: Alta
+      responses:
+        "201":
+          description: Usuario registrado con exito.
+    put:
+      tags:
+      url: /api/v1/usuario/{id}
+      description: Modifica los datos del usuario.
+      operationId: Modifica
+      responses:
+        "200":
+          description: Usuario modificado con exito.
+    delete:
+      tags:
+      url: /api/v1/usuario/{id}
+      description: Elimina el usuario por id.
+      operationId: Eliminar
+      responses:
+        "200":
+          description: Usuario eliminado con exito.
+tags:
+- name: Iniciar-Sesion
+paths: https://appifraccionamiento.herokuapp.com/
+  /:    
+    post:
+      tags:
+      url: /api/v1/Iniciar-Sesion
+      description: Registro de Inicio de Sesion.
