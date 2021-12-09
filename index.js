@@ -3,6 +3,7 @@ const mysql = require('mysql')
 const myconn = require('express-myconnection')
 const Visitante = require("./rutas")
 const singIn=require("./login.js")
+const usuario=require("./usuario")
 //Instanciamos el express
 const app = express()
 
@@ -24,6 +25,7 @@ app.get('/', (req,res)=>{
     res.send("My api-Rest con node.js")
 })
 app.use('/api/v1/visitante', Visitante)
+app.use('/api/v1/usuario', usuario)
 app.use('/api/v1/Iniciar-Sesion', singIn)
 
 //Server running//
